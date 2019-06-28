@@ -23,8 +23,6 @@ public class computerMgr {
      * 开始菜单
      */
     public void startMenu(){
-         boolean quit=false;
-         while (!quit) {
              System.out.println("\t\t欢迎电脑管理系统");
              System.out.println("-------------------------------------");
              System.out.println("请选择用户操作：1：查看电脑信息\t2:增加电脑信息\t3:删除电脑信息\t4:退出");     
@@ -44,12 +42,12 @@ public class computerMgr {
                 case 3://delete
                     break;
                 case 4://quit
-                    quit=true;
+                    
                     break;
                 default:
                     System.out.println("输入有误，请重新输入");
              }
-         }
+         
     }
 
     /**
