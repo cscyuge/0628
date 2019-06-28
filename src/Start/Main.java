@@ -6,9 +6,8 @@ public class Main {
     public static void main(String[] args) {
         computerMgr cm = new computerMgr();
         cm.initial();
-        boolean quit=false;
-        while (!quit) {
-            quit=cm.startMenu();
+        while (true) {
+            if (cm.startMenu()) break;
             cm.returnMain();
         }
     }

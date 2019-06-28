@@ -25,6 +25,7 @@ public class computerMgr {
         computers[3] = new Desktop("Lenovo5050", "联想", "AMD速龙64", "1GB", "160GB", "22英寸", "立式");
         computers[4] = new Notebook("u4000", "华硕", "酷睿i5", "4GB", "160GB", "14英寸", "9芯");
         computers[5] = new Desktop("Lenovo天逸", "联想", "酷睿i5", "8GB", "1TB", "22英寸", "立式");
+        cnt = 6;
     }
 
     /**
@@ -42,7 +43,6 @@ public class computerMgr {
         switch (choice) {
         case 1:// show
             show();
-            returnMain();
             break;
         case 2:// add
             System.out.println("\n谢谢 使 用！");
@@ -56,6 +56,38 @@ public class computerMgr {
         }
         return false;
 
+    }
+
+    public void add() {
+        if (cnt >= computers.length) {
+            Computer[] new_arr = new Computer[computers.length << 1];
+            for (int i = 0; i < cnt; ++i) new_arr[i] = computers[i];
+            computers = new_arr;
+        }
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请选择电脑类型：1：笔记本 \t2：台式机");
+        int type = sc.nextInt();
+        System.out.print("请输入型号名称：");
+        String name = sc.next();
+        System.out.print("请输入品牌名称：");
+        String brand = sc.next();
+        System.out.print("请输入CPU：");
+        String CPU = sc.next();
+        System.out.print("请输入内存：");
+        String memory = sc.next();
+        System.out.print("请输入硬盘：");
+        String disk = sc.next();
+        System.out.print("请输入显示器尺寸：");
+        String monitor = sc.next();
+        if (type == 1) {
+            System.out.print("电池芯片：");
+            String battery = sc.next();
+            computers[cnt++] = new Notebook(name, brand, CPU, memory, disk, monitor, battery);
+        } else {
+            System.out.println("请选择机箱类型：1：立式\t2：卧式");
+            String hosttype = sc.next();
+            computers[cnt++] = new Desktop(name, brand, CPU, memory, disk, monitor, hosttype);
+        }
     }
 
     /**
@@ -90,17 +122,18 @@ public class computerMgr {
     }
 
     public void show() {
-        System.out.println("序号\t\t型号名称\t\t品牌\tCPU\t内存\t硬盘\t显示器\t电池芯片\t机箱类型");
-        for (int i = 0; i < computers.length; i++) {
+        String head = "型号名称\t\t品牌\t\tCPU\t\t内存\t\t硬盘\t\t显示器\t\t电池芯片\t\t机箱类型";
+        System.out.println("序号\t\t" + head);
+        for (int i = 0; i < cnt; i++) {
             System.out.print(i + 1 + "\t\t");
             computers[i].printInfo();
         }
         System.out.println("请输入所选序号：");
         Scanner input = new Scanner(System.in);
         int id = input.nextInt();
-        if (id >= 1 && id <= computers.length) {
+        if (id >= 1 && id <= cnt) {
             System.out.println("您选择的电脑具体信息如下");
-            System.out.println("序号\t\t型号名称\t\t品牌\tCPU\t内存\t硬盘\t显示器\t电池芯片\t机箱类型");
+            System.out.println(head);
             computers[id - 1].printInfo();
         } else {
             System.out.println("序号有误！");

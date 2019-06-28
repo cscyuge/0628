@@ -24,7 +24,7 @@ public class Desktop extends Computer {
     @Override
     public void printInfo() {
         // TODO Auto-generated method stub
-        System.out.println(getName() + "\t" + getBrand() + "\t" + getCPU() + "\t" + getMemory() + "\t" + getHardDisk() + "\t" + getMonitor() + "\t\t\t" + getHosttype());
+        System.out.println(format(getName()) + format(getBrand()) + format(getCPU()) + format(getMemory()) + format(getHardDisk()) + format(getMonitor()) + "\t\t" + format(getHosttype()));
     }
     
 }

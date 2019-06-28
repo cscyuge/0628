@@ -22,10 +22,10 @@ public class Notebook extends Computer {
     public void setBattery(String battery) {
         this.battery = battery;
     }
-
+    
     @Override
     public void printInfo() {
         // TODO Auto-generated method stub
-        System.out.println(getName() + "\t" + getBrand() + "\t" + getCPU() + "\t" + getMemory() + "\t" + getHardDisk() + "\t" + getMonitor() + "\t" + getBattery());
+        System.out.println(format(getName()) + format(getBrand()) + format(getCPU()) + format(getMemory()) + format(getHardDisk()) + format(getMonitor()) + format(getBattery()));
     }
 }

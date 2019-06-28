@@ -74,4 +74,8 @@ public abstract class Computer {
     public void setMonitor(String monitor) {
         this.monitor = monitor;
     }   
+    
+    public String format(String s) {
+        return s + (s.length() >= 7 ? "\t" : "\t\t");
+    }
 }
