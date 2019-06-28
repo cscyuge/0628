@@ -24,7 +24,7 @@ public class Notebook extends Computer {
     }
     
     @Override
-    public void printInfo() {
+    public void printInfo(boolean flag) {
         // TODO Auto-generated method stub
         System.out.println(format(getName()) + format(getBrand()) + format(getCPU()) + format(getMemory()) + format(getHardDisk()) + format(getMonitor()) + format(getBattery()));
     }

@@ -22,9 +22,9 @@ public class Desktop extends Computer {
     }
 
     @Override
-    public void printInfo() {
+    public void printInfo(boolean flag) {
         // TODO Auto-generated method stub
-        System.out.println(format(getName()) + format(getBrand()) + format(getCPU()) + format(getMemory()) + format(getHardDisk()) + format(getMonitor()) + "\t\t" + format(getHosttype()));
+        System.out.println(format(getName()) + format(getBrand()) + format(getCPU()) + format(getMemory()) + format(getHardDisk()) + format(getMonitor()) + (flag ? "\t\t" : "") + format(getHosttype()));
     }
     
 }

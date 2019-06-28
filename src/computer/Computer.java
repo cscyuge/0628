@@ -23,9 +23,7 @@ public abstract class Computer {
         this.monitor = monitor;
     }
     
-    public abstract void printInfo();
- 
-    
+    public abstract void printInfo(boolean flag);
     
     public String getName() {
         return name;
