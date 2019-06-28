@@ -16,7 +16,6 @@ public class computerMgr {
     }
 
     public void initial() {
-
     }
 
     /**
@@ -56,17 +55,28 @@ public class computerMgr {
     public void returnMain() {
         Scanner input = new Scanner(System.in);
         System.out.print("输入0返回：");
-        if (input.nextInt() == 0) {
-            startMenu();
-        } else {
-            System.out.println("输入错误, 异常终止！");
+        while (input.nextInt() != 0) {
+            System.out.println("无效输入！");
         }
     }
 
-    /**
-     * 借出排行榜
-     */
     public void show() {
-        
+        System.out.println("序号\t\t型号名称\t\t品牌\tCPU\t内存\t硬盘\t显示器\t电池芯片\t机箱类型");
+        for (int i=0;i<computers.length;i++) {
+            System.out.print(i+1+"\t\t");
+            computers[i].printInfo();
+        }
+        System.out.println("请输入所选序号：");
+        Scanner input = new Scanner(System.in);
+        int id = input.nextInt();
+        if (id>=1&&id<=computers.length) {
+            System.out.println("您选择的电脑具体信息如下");
+            System.out.println("序号\t\t型号名称\t\t品牌\tCPU\t内存\t硬盘\t显示器\t电池芯片\t机箱类型");
+            computers[id-1].printInfo();
+        }else {
+            System.out.println("序号有误！");
+        }
     }
+    
+    
 }
