@@ -3,6 +3,8 @@ package manager;
 import java.util.Scanner;
 
 import computer.Computer;
+import computer.Notebook;
+import computer.Desktop;
 
 public class computerMgr {
     private Computer[] computers = new Computer[50];
@@ -17,7 +19,12 @@ public class computerMgr {
     }
 
     public void initial() {
-
+        computers[0] = new Notebook("T61", "IBM", "Intel酷睿2", "2GB", "160GB", "14.1英寸", "6芯");
+        computers[1] = new Notebook("X60", "IBM", "Intel酷睿2", "512MB", "60GB", "12.1英寸", "6芯");
+        computers[2] = new Desktop("530MT", "戴尔", "Intel酷睿2", "512MB", "80GB", "19英寸", "卧式");
+        computers[3] = new Desktop("Lenovo5050", "联想", "AMD速龙64", "1GB", "160GB", "22英寸", "立式");
+        computers[4] = new Notebook("u4000", "华硕", "酷睿i5", "4GB", "160GB", "14英寸", "9芯");
+        computers[5] = new Desktop("Lenovo天逸", "联想", "酷睿i5", "8GB", "1TB", "22英寸", "立式");
     }
 
     /**
@@ -70,7 +77,7 @@ public class computerMgr {
     public void show() {
     }
     
-    public boolean delete(int n) {
+    private boolean delete(int n) {
         if (n >= cnt) {
             System.out.println("不存在，请重新输入！");
             return false;
