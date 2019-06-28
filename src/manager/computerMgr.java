@@ -5,7 +5,8 @@ import java.util.Scanner;
 import computer.Computer;
 
 public class computerMgr {
-    Computer[] computers = new Computer[50];
+    private Computer[] computers = new Computer[50];
+    private int cnt = 0;
 
     public computerMgr() {
 
@@ -64,9 +65,28 @@ public class computerMgr {
     }
 
     /**
-     * 借出排行榜
+     * 
      */
     public void show() {
-
+    }
+    
+    public boolean delete(int n) {
+        if (n >= cnt) {
+            System.out.println("不存在，请重新输入！");
+            return false;
+        }
+        for (int i = n; i < cnt - 1; ++i) computers[i] = computers[i + 1];
+        --cnt;
+        System.out.println("删除成功！");
+        return true;
+    }
+    
+    public void delete() {
+        Scanner sc = new Scanner(System.in);
+        int n;
+        do {
+            System.out.println("请输入删除序号:");
+            n = sc.nextInt();
+        } while (!delete(n));
     }
 }
