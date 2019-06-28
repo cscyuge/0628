@@ -2,10 +2,15 @@ package manager;
 
 import java.util.Scanner;
 
+import org.omg.CosNaming.NamingContextExtPackage.AddressHelper;
+
 import computer.Computer;
+import computer.Desktop;
+import computer.Notebook;
 
 public class computerMgr {
     Computer[] computers = new Computer[50];
+    private int cnt=0;
 
     public computerMgr() {
 
@@ -16,6 +21,13 @@ public class computerMgr {
     }
 
     public void initial() {
+        computers[0] = new Notebook("T61", "IBM", "Intel酷睿2", "2GB", "160GB", "14.1英寸", "6芯");
+        computers[1] = new Notebook("X60", "IBM", "Intel酷睿2", "512MB", "60GB", "12.1英寸", "6芯");
+        computers[2] = new Desktop("530MT", "戴尔", "Intel酷睿2", "512MB", "80GB", "19英寸", "卧式");
+        computers[3] = new Desktop("Lenovo5050", "联想", "AMD速龙64", "1GB", "160GB", "22英寸", "立式");
+        computers[4] = new Notebook("u4000", "华硕", "酷睿i5", "4GB", "160GB", "14英寸", "9芯");
+        computers[5] = new Desktop("Lenovo天逸", "联想", "酷睿i5", "8GB", "1TB", "22英寸", "立式");
+        cnt=6;
     }
 
     /**
@@ -36,11 +48,13 @@ public class computerMgr {
             returnMain();
             break;
         case 2:// add
-            System.out.println("\n谢谢 使 用！");
+            add();
             break;
         case 3:// delete
+            delete();
             break;
         case 4:// quit
+            System.out.println("\n谢谢 使 用！");
             return true;
         default:
             System.out.println("输入有误，请重新输入");
@@ -63,13 +77,14 @@ public class computerMgr {
     public void show() {
         System.out.println("序号\t\t型号名称\t\t品牌\tCPU\t内存\t硬盘\t显示器\t电池芯片\t机箱类型");
         for (int i=0;i<computers.length;i++) {
+            if (computers[i] == null) break;
             System.out.print(i+1+"\t\t");
             computers[i].printInfo();
         }
         System.out.println("请输入所选序号：");
         Scanner input = new Scanner(System.in);
         int id = input.nextInt();
-        if (id>=1&&id<=computers.length) {
+        if (id>=0&&id<computers.length&&computers[id-1]!=null) {
             System.out.println("您选择的电脑具体信息如下");
             System.out.println("序号\t\t型号名称\t\t品牌\tCPU\t内存\t硬盘\t显示器\t电池芯片\t机箱类型");
             computers[id-1].printInfo();
@@ -78,5 +93,31 @@ public class computerMgr {
         }
     }
     
+    private boolean delete(int n) {
+        if (n >= cnt) {
+            System.out.println("不存在，请重新输入！");
+            return false;
+        }
+        for (int i = n; i < cnt - 1; ++i) computers[i] = computers[i + 1];
+        --cnt;
+        System.out.println("删除成功！");
+        return true;
+    }
     
+    public void delete() {
+        Scanner sc = new Scanner(System.in);
+        int n;
+        do {
+            System.out.println("请输入删除序号:");
+            n = sc.nextInt();
+        } while (!delete(n));
+    }
+    
+    
+    
+    public void add() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请选择电脑类型：");
+        
+    }
 }
