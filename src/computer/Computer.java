@@ -14,13 +14,13 @@ public abstract class Computer {
         // TODO Auto-generated constructor stub
     }
     
-    public Computer(String name,String brand,String cpu,String memory, String hardDisk,String monitor) {
-        this.name=name;
-        this.brand=brand;
-        this.cpu=cpu;
-        this.memory=memory;
-        this.hardDisk=hardDisk;
-        this.monitor=monitor;
+    public Computer(String name, String brand, String cpu, String memory, String hardDisk, String monitor) {
+        this.name = name;
+        this.brand = brand;
+        this.cpu = cpu;
+        this.memory = memory;
+        this.hardDisk = hardDisk;
+        this.monitor = monitor;
     }
     
     public abstract void printInfo();
@@ -43,11 +43,11 @@ public abstract class Computer {
         this.brand = brand;
     }
 
-    public String getCpu() {
+    public String getCPU() {
         return cpu;
     }
 
-    public void setCpu(String cpu) {
+    public void setCPU(String cpu) {
         this.cpu = cpu;
     }
 
