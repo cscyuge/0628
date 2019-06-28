@@ -19,18 +19,21 @@ public class computerMgr {
     }
 
     public void initial() {
+<<<<<<< HEAD
         computers[0] = new Notebook("T61", "IBM", "Intel酷睿2", "2GB", "160GB", "14.1英寸", "6芯");
         computers[1] = new Notebook("X60", "IBM", "Intel酷睿2", "512MB", "60GB", "12.1英寸", "6芯");
         computers[2] = new Desktop("530MT", "戴尔", "Intel酷睿2", "512MB", "80GB", "19英寸", "卧式");
         computers[3] = new Desktop("Lenovo5050", "联想", "AMD速龙64", "1GB", "160GB", "22英寸", "立式");
         computers[4] = new Notebook("u4000", "华硕", "酷睿i5", "4GB", "160GB", "14英寸", "9芯");
         computers[5] = new Desktop("Lenovo天逸", "联想", "酷睿i5", "8GB", "1TB", "22英寸", "立式");
+=======
+>>>>>>> ed80512adfb02283b5eb1ee5eeec239807aeec5a
     }
 
     /**
      * 开始菜单
      */
-    public void startMenu() {
+    public boolean startMenu() {
         System.out.println("\t\t欢迎电脑管理系统");
         System.out.println("-------------------------------------");
         System.out.println("请选择用户操作：1：查看电脑信息\t2:增加电脑信息\t3:删除电脑信息\t4:退出");
@@ -50,11 +53,11 @@ public class computerMgr {
         case 3:// delete
             break;
         case 4:// quit
-
-            break;
+            return true;
         default:
             System.out.println("输入有误，请重新输入");
         }
+        return false;
 
     }
 
@@ -64,13 +67,12 @@ public class computerMgr {
     public void returnMain() {
         Scanner input = new Scanner(System.in);
         System.out.print("输入0返回：");
-        if (input.nextInt() == 0) {
-            startMenu();
-        } else {
-            System.out.println("输入错误, 异常终止！");
+        while (input.nextInt() != 0) {
+            System.out.println("无效输入！");
         }
     }
 
+<<<<<<< HEAD
     /**
      * 
      */
@@ -95,5 +97,25 @@ public class computerMgr {
             System.out.println("请输入删除序号:");
             n = sc.nextInt();
         } while (!delete(n));
+=======
+    public void show() {
+        System.out.println("序号\t\t型号名称\t\t品牌\tCPU\t内存\t硬盘\t显示器\t电池芯片\t机箱类型");
+        for (int i=0;i<computers.length;i++) {
+            System.out.print(i+1+"\t\t");
+            computers[i].printInfo();
+        }
+        System.out.println("请输入所选序号：");
+        Scanner input = new Scanner(System.in);
+        int id = input.nextInt();
+        if (id>=1&&id<=computers.length) {
+            System.out.println("您选择的电脑具体信息如下");
+            System.out.println("序号\t\t型号名称\t\t品牌\tCPU\t内存\t硬盘\t显示器\t电池芯片\t机箱类型");
+            computers[id-1].printInfo();
+        }else {
+            System.out.println("序号有误！");
+        }
+>>>>>>> ed80512adfb02283b5eb1ee5eeec239807aeec5a
     }
+    
+    
 }
